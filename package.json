@@ -1,0 +1,11 @@
+{
+  "name": "nebolus-spammer",
+  "version": "4.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "whatsapp-web.js": "^1.23.0",
+    "axios": "^1.6.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
