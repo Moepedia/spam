@@ -3,72 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEBOLUS SPAMMER v4.0</title>
+    <title>NEBOLUS CRASHER v5.0</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { background:#0a0a0a; color:#00ff41; font-family:'Courier New',monospace; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-        .container { background:#111; border:2px solid #00ff41; padding:30px; border-radius:10px; width:600px; box-shadow:0 0 50px #00ff4133; }
-        h1 { text-align:center; color:#00ff41; text-shadow:0 0 20px #00ff41; font-size:28px; margin-bottom:20px; }
-        .box { background:#1a1a1a; padding:15px; border-radius:5px; margin-bottom:15px; border-left:3px solid #00ff41; }
-        label { display:block; margin-bottom:5px; color:#00cc33; font-weight:bold; }
-        input, textarea, select { width:100%; padding:10px; background:#0a0a0a; border:1px solid #00ff41; color:#00ff41; border-radius:5px; font-family:'Courier New',monospace; }
-        textarea { height:100px; resize:vertical; }
-        .btn { width:100%; padding:15px; background:#00ff41; color:#0a0a0a; font-weight:bold; font-size:18px; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
-        .btn:hover { background:#00cc33; box-shadow:0 0 30px #00ff41; }
-        .status { margin-top:15px; padding:10px; background:#1a1a1a; border-radius:5px; text-align:center; }
-        .counter { font-size:14px; color:#00ff41; }
+        body { background: #0a0a0a; color: #ff0000; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        .container { background: #111; border: 3px solid #ff0000; padding: 30px; border-radius: 10px; width: 700px; box-shadow: 0 0 100px #ff000066; position: relative; }
+        .glitch { animation: glitch 2s infinite; }
+        @keyframes glitch { 0% { text-shadow: 2px 0 red, -2px 0 blue; } 50% { text-shadow: -2px 0 red, 2px 0 blue; } 100% { text-shadow: 2px 0 red, -2px 0 blue; } }
+        h1 { text-align: center; color: #ff0000; text-shadow: 0 0 30px #ff0000; font-size: 32px; margin-bottom: 20px; }
+        .box { background: #1a1a1a; padding: 15px; border-radius: 5px; margin-bottom: 15px; border-left: 4px solid #ff0000; }
+        label { display: block; margin-bottom: 5px; color: #ff3333; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 10px; background: #0a0a0a; border: 2px solid #ff0000; color: #ff0000; border-radius: 5px; font-family: 'Courier New', monospace; }
+        textarea { height: 100px; resize: vertical; }
+        .btn { width: 100%; padding: 15px; background: #ff0000; color: #0a0a0a; font-weight: bold; font-size: 20px; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn:hover { background: #cc0000; box-shadow: 0 0 50px #ff0000; transform: scale(1.02); }
+        .btn-danger { background: #ff0000; animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .status { margin-top: 15px; padding: 15px; background: #1a1a1a; border-radius: 5px; text-align: center; border: 1px solid #ff0000; }
+        .counter { font-size: 18px; color: #ff3333; font-weight: bold; }
+        .skull { font-size: 48px; text-align: center; }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>☠ NEBOLUS SPAMMER ☠</h1>
+<div class="container" id="main">
+    <div class="skull">☠️</div>
+    <h1 class="glitch">NEBOLUS CRASHER v5.0</h1>
     <div class="box">
-        <label>📱 Nomor Target (tanpa 0, contoh: 62812xxxx)</label>
-        <input type="text" id="target" placeholder="62812xxxxxx">
+        <label>📱 Nomor Target (format: 628xxxxx)</label>
+        <input type="text" id="target" placeholder="628123456789">
     </div>
     <div class="box">
-        <label>📝 Pesan Spam (support emoji & html)</label>
-        <textarea id="message">🔥 NEBOLUSVERSE MENGUASAI! 🔥\nKamu kena spam brutal!</textarea>
-    </div>
-    <div class="box">
-        <label>⚡ Jumlah Spam (per detik)</label>
-        <input type="number" id="count" value="100" min="1" max="9999">
-    </div>
-    <div class="box">
-        <label>🔄 Mode Spam</label>
+        <label>💀 Mode Serangan</label>
         <select id="mode">
-            <option value="api">API Exploit (cepat)</option>
-            <option value="session">Session Hijacking (brutal)</option>
-            <option value="hybrid">Hybrid (rekomendasi)</option>
+            <option value="hybrid">HYBRID (WA + Browser) - BRUTAL</option>
+            <option value="wa">WhatsApp Message Flood</option>
+            <option value="browser">Browser Exploit + Memory Bomb</option>
+            <option value="otp">OTP Pairing Code Flood</option>
+            <option value="all">ALL MODE - MAXIMUM DAMAGE</option>
         </select>
     </div>
-    <button class="btn" onclick="startSpam()">🚀 MULAI SPAM BRUTAL</button>
+    <div class="box">
+        <label>⚡ Intensitas (1-10)</label>
+        <input type="number" id="intensity" value="10" min="1" max="10">
+    </div>
+    <div class="box">
+        <label>📝 Pesan Spam (opsional)</label>
+        <textarea id="message">☠️ NEBOLUSVERSE MENGUASAI ☠️\nHP LO HANCUR!!\n🔥🔥🔥</textarea>
+    </div>
+    <button class="btn btn-danger" onclick="startAttack()">💀 MULAI PENGHANCURAN 💀</button>
+    <button class="btn" onclick="stopAttack()" style="background:#333; margin-top:10px;">⛔ STOP</button>
     <div id="status" class="status">⚡ SIAP MENGHANCURKAN ⚡</div>
-    <div class="counter" id="counter">Total Terkirim: 0</div>
+    <div class="counter" id="counter">Total Serangan: 0</div>
+    <div class="counter" id="victimStatus">Status Target: ONLINE</div>
 </div>
+
 <script>
-let total = 0;
-function startSpam() {
+let attackInterval = null;
+let totalAttacks = 0;
+let isRunning = false;
+
+async function startAttack() {
+    if (isRunning) return;
     const target = document.getElementById('target').value;
-    const message = document.getElementById('message').value;
-    const count = parseInt(document.getElementById('count').value);
     const mode = document.getElementById('mode').value;
-    if(!target || !message) { alert('Isi semua kolom!'); return; }
-    document.getElementById('status').innerHTML = '🔥 SPAM BERJALAN... 🔥';
-    const interval = setInterval(() => {
-        fetch('/spam', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({ target, message, mode })
-        })
-        .then(res => res.json())
-        .then(data => {
-            total += data.sent || 1;
-            document.getElementById('counter').innerHTML = `Total Terkirim: ${total}`;
-        })
-        .catch(() => {});
-    }, 1000 / count);
-    setTimeout(() => { clearInterval(interval); document.getElementById('status').innerHTML = '✅ SPAM SELESAI! ✅'; }, 30000);
+    const intensity = parseInt(document.getElementById('intensity').value);
+    const message = document.getElementById('message').value;
+    
+    if (!target) { alert('Masukkan nomor target!'); return; }
+    
+    isRunning = true;
+    document.getElementById('status').innerHTML = '💀 SERANGAN BERJALAN... 💀';
+    document.getElementById('victimStatus').innerHTML = '🔥 STATUS: DISERANG 🔥';
+    
+    // Attack loop
+    attackInterval = setInterval(async () => {
+        try {
+            const response = await fetch('/attack', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    target, 
+                    mode, 
+                    intensity, 
+                    message,
+                    sessionId: Math.random().toString(36).substring(7)
+                })
+            });
+            const data = await response.json();
+            totalAttacks += data.sent || 1;
+            document.getElementById('counter').innerHTML = `Total Serangan: ${totalAttacks}`;
+            
+            // Update status target
+            if (data.victimStatus) {
+                document.getElementById('victimStatus').innerHTML = `💀 Status Target: ${data.victimStatus}`;
+            }
+        } catch(e) {
+            console.log('Error:', e);
+        }
+    }, 200 / intensity);
+    
+    // Auto stop after 5 minutes biar ga overkill
+    setTimeout(() => {
+        stopAttack();
+    }, 300000);
+}
+
+function stopAttack() {
+    if (attackInterval) {
+        clearInterval(attackInterval);
+        attackInterval = null;
+    }
+    isRunning = false;
+    document.getElementById('status').innerHTML = '⛔ SERANGAN DIHENTIKAN ⛔';
+    document.getElementById('victimStatus').innerHTML = '💀 TARGET KEMUNGKINAN CRASH 💀';
 }
 </script>
 </body>
