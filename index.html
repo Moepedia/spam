@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBOLUS SPAMMER v4.0</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#0a0a0a; color:#00ff41; font-family:'Courier New',monospace; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+        .container { background:#111; border:2px solid #00ff41; padding:30px; border-radius:10px; width:600px; box-shadow:0 0 50px #00ff4133; }
+        h1 { text-align:center; color:#00ff41; text-shadow:0 0 20px #00ff41; font-size:28px; margin-bottom:20px; }
+        .box { background:#1a1a1a; padding:15px; border-radius:5px; margin-bottom:15px; border-left:3px solid #00ff41; }
+        label { display:block; margin-bottom:5px; color:#00cc33; font-weight:bold; }
+        input, textarea, select { width:100%; padding:10px; background:#0a0a0a; border:1px solid #00ff41; color:#00ff41; border-radius:5px; font-family:'Courier New',monospace; }
+        textarea { height:100px; resize:vertical; }
+        .btn { width:100%; padding:15px; background:#00ff41; color:#0a0a0a; font-weight:bold; font-size:18px; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+        .btn:hover { background:#00cc33; box-shadow:0 0 30px #00ff41; }
+        .status { margin-top:15px; padding:10px; background:#1a1a1a; border-radius:5px; text-align:center; }
+        .counter { font-size:14px; color:#00ff41; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>☠ NEBOLUS SPAMMER ☠</h1>
+    <div class="box">
+        <label>📱 Nomor Target (tanpa 0, contoh: 62812xxxx)</label>
+        <input type="text" id="target" placeholder="62812xxxxxx">
+    </div>
+    <div class="box">
+        <label>📝 Pesan Spam (support emoji & html)</label>
+        <textarea id="message">🔥 NEBOLUSVERSE MENGUASAI! 🔥\nKamu kena spam brutal!</textarea>
+    </div>
+    <div class="box">
+        <label>⚡ Jumlah Spam (per detik)</label>
+        <input type="number" id="count" value="100" min="1" max="9999">
+    </div>
+    <div class="box">
+        <label>🔄 Mode Spam</label>
+        <select id="mode">
+            <option value="api">API Exploit (cepat)</option>
+            <option value="session">Session Hijacking (brutal)</option>
+            <option value="hybrid">Hybrid (rekomendasi)</option>
+        </select>
+    </div>
+    <button class="btn" onclick="startSpam()">🚀 MULAI SPAM BRUTAL</button>
+    <div id="status" class="status">⚡ SIAP MENGHANCURKAN ⚡</div>
+    <div class="counter" id="counter">Total Terkirim: 0</div>
+</div>
+<script>
+let total = 0;
+function startSpam() {
+    const target = document.getElementById('target').value;
+    const message = document.getElementById('message').value;
+    const count = parseInt(document.getElementById('count').value);
+    const mode = document.getElementById('mode').value;
+    if(!target || !message) { alert('Isi semua kolom!'); return; }
+    document.getElementById('status').innerHTML = '🔥 SPAM BERJALAN... 🔥';
+    const interval = setInterval(() => {
+        fetch('/spam', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({ target, message, mode })
+        })
+        .then(res => res.json())
+        .then(data => {
+            total += data.sent || 1;
+            document.getElementById('counter').innerHTML = `Total Terkirim: ${total}`;
+        })
+        .catch(() => {});
+    }, 1000 / count);
+    setTimeout(() => { clearInterval(interval); document.getElementById('status').innerHTML = '✅ SPAM SELESAI! ✅'; }, 30000);
+}
+</script>
+</body>
+</html>
