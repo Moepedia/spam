@@ -1,7 +1,7 @@
 {
-  "name": "nebolus-spammer",
-  "version": "4.0.0",
-  "description": "Nebolusverse Ultimate Spammer",
+  "name": "nebolus-crasher",
+  "version": "5.0.0",
+  "description": "Nebolusverse Ultimate Crasher & Malware",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,7 +13,8 @@
     "whatsapp-web.js": "^1.23.0",
     "axios": "^1.6.0",
     "qrcode-terminal": "^0.12.0",
-    "puppeteer": "^21.0.0"
+    "puppeteer": "^21.0.0",
+    "socket.io": "^4.6.0"
   },
   "engines": {
     "node": ">=18.0.0"
